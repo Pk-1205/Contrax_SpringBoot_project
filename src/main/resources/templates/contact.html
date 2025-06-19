@@ -1,0 +1,110 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content}, ~{::title}, ~{::script})}">
+<head>
+  <title>Contact Us - ContraxIQ</title>
+</head>
+<body>
+<div id="content" class="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 px-4 py-12 sm:px-8">
+
+  <!-- Header -->
+  <div class="text-center mb-12">
+    <h1 class="text-4xl sm:text-5xl font-bold mb-4">Contact <span class="text-blue-600">ContraxIQ</span></h1>
+    <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-300">We're here to help. Reach out with any questions, feedback, or support needs.</p>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+
+    <!-- Contact Form -->
+    <div class="bg-gray-100 dark:bg-gray-800 p-8 rounded-xl shadow">
+      <!-- Success Message (Initially hidden) -->
+      <div id="success-message" class="hidden mb-4 p-4 rounded-md bg-green-100 text-green-800 font-medium text-center">
+        ✅ Thank you! I will contact you soon.
+      </div>
+
+      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+        <input type="hidden" name="access_key" value="92cb992a-0ff6-44c4-b101-5c24ffd0bcae">
+        <input type="text" name="honeypot" style="display:none">
+
+        <!-- Full Name -->
+        <div>
+          <label class="block mb-2 font-medium">Full Name</label>
+          <input type="text" name="name" required class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200" placeholder="John Doe" />
+        </div>
+
+        <!-- Email Address -->
+        <div>
+          <label class="block mb-2 font-medium">Email Address</label>
+          <input type="email" name="email" required class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200" placeholder="you@example.com" />
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label class="block mb-2 font-medium">Message</label>
+          <textarea name="message" rows="5" required class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200" placeholder="Your message..."></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-md transition focus:outline-none focus:ring-2 focus:ring-blue-300">
+          Send Message
+        </button>
+      </form>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="flex flex-col justify-center space-y-6">
+      <div>
+        <h3 class="text-xl font-semibold mb-2">📍 Office Address</h3>
+        <p>123 Startup Lane<br/> Bangalore</p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-semibold mb-2">📧 Email</h3>
+        <p><a href="mailto:prasoonkumar0102@gmail.com" class="text-blue-600 hover:underline">prasoonkumar0102@gmail.com</a></p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-semibold mb-2">📞 Phone</h3>
+        <p>+91 9507332064</p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-semibold mb-2">🌐 Follow Us</h3>
+        <div class="flex space-x-4">
+          <a href="https://www.linkedin.com/in/prasoonkumar-pd97/" target="_blank" class="hover:text-blue-600">LinkedIn</a>
+          <a href="https://github.com/Pk-1205" target="_blank" class="hover:text-blue-600" title="GitHub Profile">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- JS for handling success message -->
+<script>
+  const form = document.getElementById('contact-form');
+  const successMessage = document.getElementById('success-message');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: formData,
+    });
+
+    if (response.ok) {
+      successMessage.classList.remove("hidden");
+      form.reset();
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+  });
+</script>
+</body>
+</html>

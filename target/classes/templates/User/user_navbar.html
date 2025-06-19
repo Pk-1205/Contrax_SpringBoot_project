@@ -1,0 +1,76 @@
+
+
+
+
+<nav data-th-fragment="user-navbar" class="bg-black text-white fixed w-full z-20 top-0 start-0 border-b border-gray-700 h-16 pl-60">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 sm:px-6 lg:px-8 py-3 text-base md:text-lg">
+
+   
+    <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
+      type="button"
+      class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-600">
+      <span class="sr-only">Open sidebar</span>
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+        <path clip-rule="evenodd" fill-rule="evenodd"
+          d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+        </path>
+      </svg>
+    </button>
+
+    
+    <a data-th-href="@{'/'}" class="flex items-center gap-2">
+      <img th:src="@{/images/smart-home.png}" class="h-8" alt="Logo" />
+      <span class="text-xl font-semibold">ContraxIQ</span>
+    </a>
+
+   
+    <div class="flex items-center gap-2 md:order-2">
+      <button id="themeToggle" onclick="changeTheme()"
+        class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-1.5 rounded-md text-sm flex items-center gap-2">
+        <i class="fa-regular fa-moon"></i>
+        <span>Dark</span>
+      </button>
+
+      <a data-th-href="@{'/user/profile'}"
+        class="bg-green-600 hover:bg-green-700 px-4 py-1.5 rounded-md text-sm font-medium">👤 <span
+          th:text="${LoggedUser.name}"></span></a>
+
+      <a data-th-href="@{'/logout'}"
+        class="bg-red-600 hover:bg-red-700 px-4 py-1.5 rounded-md text-sm font-medium">LogOut</a>
+
+      
+      <button data-collapse-toggle="navbar-sticky"
+        class="inline-flex items-center p-2 text-gray-300 rounded-lg md:hidden hover:bg-gray-700">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M1 1h15M1 7h15M1 13h15" />
+        </svg>
+      </button>
+    </div>
+
+    
+    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+      <ul
+        class="flex flex-col md:flex-row gap-2 md:gap-6 mt-4 md:mt-0 font-medium border border-black md:border-none rounded-lg bg-black md:bg-transparent p-4 md:p-0">
+        <li>
+          <a data-th-href="@{'/home'}"
+            class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-400 md:p-0">Home</a>
+        </li>
+        <li>
+          <a data-th-href="@{'/about'}"
+            class="block py-2 px-3 text-gray-300 hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-400 rounded md:p-0">About</a>
+        </li>
+        <li>
+          <a data-th-href="@{'/service'}"
+            class="block py-2 px-3 text-gray-300 hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-400 rounded md:p-0">Services</a>
+        </li>
+        <li>
+          <a data-th-href="@{'/contact'}"
+            class="block py-2 px-3 text-gray-300 hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-400 rounded md:p-0">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+

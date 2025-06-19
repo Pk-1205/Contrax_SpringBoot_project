@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content}, ~{::title}, ~{::script})}">
+
+<head th:fragment="title">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signup Page</title>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white">
+
+  <div id="content" th:fragment="content" class="flex items-center justify-center min-h-screen px-4 -translate-y-10">
+    <form th:action="@{/do-register}" th:method="post" th:object="${userForm}" id="signupForm"
+      class="w-full max-w-md p-6 bg-white rounded-lg shadow-md dark:bg-gray-800 space-y-6" novalidate>
+      
+      <div th:replace="~{message::messagebox}"></div>
+
+      <!-- Header -->
+      <div class="text-center">
+        <h1 class="text-2xl font-bold">Create Account</h1>
+        <p class="text-sm text-gray-500 dark:text-gray-400">Please fill in your details to sign up</p>
+      </div>
+
+      <!-- Full Name -->
+      <div class="relative group">
+        <input type="text" name="name" id="name" th:field="*{name}" required
+          class="peer w-full border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 dark:text-white dark:border-gray-600 focus:border-blue-600 focus:outline-none"
+          placeholder="Full Name" />
+        
+        <p th:if="${#fields.hasErrors('name')}" class="text-red-400 text-[10px]">
+          <span th:if="${#fields.errors('name').contains('User Name is required')}">User Name is required</span>
+        </p>
+
+
+
+      </div>
+
+      <!-- Email -->
+      <div class="relative group">
+        <input type="email" name="email" id="email" th:field="*{email}" required autocomplete="email"
+          class="peer w-full border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 dark:text-white dark:border-gray-600 focus:border-blue-600 focus:outline-none"
+          placeholder="Email Address" />
+        <p th:if="${#fields.hasErrors('email')}" class="text-red-400 text-[10px]">
+          <span th:if="${#fields.errors('email').contains('Email is required')}">Email is required</span>
+          <span th:if="${#fields.errors('email').contains('Please provide a valid email')}">Please provide a valid
+            email</span>
+        </p>
+      </div>
+
+      <!-- Password -->
+      <div class="relative group">
+        <input type="password" name="password" id="password" th:field="*{password}" required
+          class="peer w-full border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 dark:text-white dark:border-gray-600 focus:border-blue-600 focus:outline-none"
+          placeholder="Password" />
+        <p th:if="${#fields.hasErrors('password')}" class="text-red-400 text-[10px]">
+          <span th:if="${#fields.errors('password').contains('Password is required')}">Password is required</span>
+        </p>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="relative group">
+        <input type="password" name="confirm_password" id="confirm_password" required
+          class="peer w-full border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 dark:text-white dark:border-gray-600 focus:border-blue-600 focus:outline-none"
+          placeholder="Confirm Password" />
+      </div>
+
+
+      <!-- Contact -->
+      <div>
+        <input type="tel" name="phoneNumber" id="contact" th:value="*{phoneNumber}" required pattern="[0-9]{10}"
+          class="peer w-full border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 dark:text-white dark:border-gray-600 focus:border-blue-600 focus:outline-none"
+          placeholder="Contact Number" />
+        <p th:if="${#fields.hasErrors('phoneNumber')}" class="text-red-400 text-[10px]">
+          <span th:if="${#fields.errors('phoneNumber').contains('Phone number is required')}">Phone number is
+            required</span>
+          <span th:if="${#fields.errors('phoneNumber').contains('Phone number must be 10 to 12 digits')}">Phone number
+            must be 10–12 digits</span>
+        </p>
+      </div>
+
+      <!-- About -->
+      <div class="relative group">
+        <textarea name="about" id="about" rows="3" th:field="*{about}" required
+          class="peer w-full border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 dark:text-white dark:border-gray-600 focus:border-blue-600 focus:outline-none resize-none"
+          placeholder="Write Somthing About You"></textarea>
+        <p th:if="${#fields.hasErrors('about')}" class="text-red-400 text-[10px]">
+          <span th:if="${#fields.errors('about').contains('About section is required')}">About is required</span>
+        </p>
+
+      </div>
+
+      <!-- Terms -->
+      <div class="flex items-start">
+        <input type="checkbox" id="terms" required
+          class="w-4 h-4 mt-1 text-blue-600 bg-gray-100 border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600" />
+        <label for="terms" class="ms-2 text-sm text-gray-700 dark:text-gray-300">
+          I agree to the <a href="#" class="text-blue-600 hover:underline dark:text-blue-400">Terms and Conditions</a>
+        </label>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit"
+        class="w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        Register
+      </button>
+    </form>
+  </div>
+
+
+
+
+  <th:block th:fragment="script">
+    <script>console.log("hi")</script>
+  </th:block>
+</body>
+
+</html>

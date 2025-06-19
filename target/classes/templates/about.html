@@ -1,0 +1,66 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content}, ~{::title}, ~{::script})}">
+<head>
+  <title>About - ContraxIQ</title>
+</head>
+<body>
+<div id="content" class="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 px-4 sm:px-8 py-12">
+
+  <!-- Intro Section -->
+  <div class="max-w-5xl mx-auto text-center">
+    <h1 class="text-4xl sm:text-5xl font-bold mb-6">About <span class="text-blue-600">ContraxIQ</span></h1>
+    <p class="text-lg sm:text-xl leading-relaxed mb-12">
+      ContraxIQ is a smart, secure, and intuitive contact management system designed to simplify how you store, manage, and interact with your contacts. Whether you're a freelancer, entrepreneur, or just someone who loves staying organized — we’ve got you covered.
+    </p>
+  </div>
+
+  <!-- Feature Highlights -->
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+    <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 shadow hover:shadow-md transition">
+      <h3 class="text-xl font-semibold mb-2">🔒 Privacy First</h3>
+      <p>All your contacts and their details are stored securely. You control your data, always.</p>
+    </div>
+
+    <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 shadow hover:shadow-md transition">
+      <h3 class="text-xl font-semibold mb-2">📱 Easy Access</h3>
+      <p>Access your contacts from any device, any time. Stay connected on the go!</p>
+    </div>
+
+    <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 shadow hover:shadow-md transition">
+      <h3 class="text-xl font-semibold mb-2">🧠 Smart Organization</h3>
+      <p>Sort, filter, and tag contacts intelligently. Spend less time searching, more time connecting.</p>
+    </div>
+
+    <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 shadow hover:shadow-md transition">
+      <h3 class="text-xl font-semibold mb-2">📊 Contact Insights</h3>
+      <p>Track interactions, view usage stats, and get insights that help build better relationships.</p>
+    </div>
+
+    <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 shadow hover:shadow-md transition">
+      <h3 class="text-xl font-semibold mb-2">💡 Intuitive UI</h3>
+      <p>Designed for clarity and ease of use, ContraxIQ offers a seamless experience for all users.</p>
+    </div>
+
+    <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 shadow hover:shadow-md transition">
+      <h3 class="text-xl font-semibold mb-2">🌐 Share & Collaborate</h3>
+      <p>Need to share contacts or work with a team? Collaborate securely and efficiently.</p>
+    </div>
+  </div>
+
+  <!-- Call to Action -->
+  <div class="mt-16 text-center">
+    <h2 class="text-2xl font-bold mb-4">Ready to simplify your contact management?</h2>
+    <a data-th-href="@{'/signup'}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg text-lg transition">Get Started with ContraxIQ</a>
+  </div>
+
+</div>
+
+<script>
+  console.log("About page loaded.");
+</script>
+</body>
+</html>

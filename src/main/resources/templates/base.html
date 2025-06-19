@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="parent(content, title, script)" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Correct fragment replacement -->
+    <title th:replace="${title}">Base page</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+    <!-- <link rel="stylesheet" th:href="@{/css/output.css}"> -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+</head>
+<body class="bg-white text-black dark:bg-gray-900 dark:text-white">
+    
+    <!-- Common Navbar -->
+     <!-- user logeed in -->
+     <div th:if="${LoggedUser}">
+        <div th:replace="~{user/user_navbar::user-navbar}"></div>
+     </div>
+
+     <!-- user side when logged user -->
+
+     
+
+
+     <!-- user not logedd in  -->
+     <div th:unless="${LoggedUser}">
+        <div th:replace="~{navbar :: navbar}"></div>
+
+     </div>
+    
+
+    <!-- Main Content Fragment -->
+    <div class="p-4 mt-16 md:mt-20 ml-7">
+        <section th:replace="${content}"></section>
+    </div>
+
+    <!-- Common Footer (optional) -->
+    <!-- <footer class="p-5">Footer: Code with Prasoon</footer> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script th:src="@{/js/script.js}"></script>
+    
+    <!-- Page-Specific Script Fragment -->
+    <th:block th:replace="${script}"></th:block>
+</body>
+</html>
